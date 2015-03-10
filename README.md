@@ -28,7 +28,7 @@ Welpywelp! Is a yelp clone built on rails and backbone. Users will be able to:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1-2 days)
+### Phase 1: User Authentication, Restaurant Creation (~1-2 days)
 I will implement user authentication in Rails based on the practices learned at
 App Academy. By the end of this phase, users will be able to create restaurants using
 a simple text form in a Rails view.
@@ -73,7 +73,7 @@ collections, but they will fetch from the new `search` routes.
 - [ ] Reblogging
 - [ ] Multiple sessions/session management
 - [ ] User to user messages
-- [ ]
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
