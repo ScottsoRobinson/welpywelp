@@ -1,0 +1,14 @@
+<h2>Edit Restaurant</h2>
+
+<form action="<%= restaurants_url(@restaurant.id) %>" method="post">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="name">Name</label>
+  <input type="text" name="restaurant[name]" value="<%= @restaurant.name %>" id="name">
+
+  <label for="cuisine">Cuisine</label>
+  <input type="text" name="restaurant[cuisine]" value="<%= @restaurant.cuisine %>" id="cuisine">
+
+  <input type="submit" value="Create Restaurant">
+</form>

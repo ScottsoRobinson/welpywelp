@@ -1,0 +1,13 @@
+<h2>Create New Restaurant</h2>
+
+<form  action="<%= restaurants_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="name">Name</label>
+  <input type="text" name="restaurant[name]" value="" id="name">
+
+  <label for="cuisine">Cuisine</label>
+  <input type="text" name="restaurant[cuisine]" value="" id="cuisine">
+
+  <input type="submit" value="Create Restaurant">
+</form>
