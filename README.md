@@ -1,8 +1,8 @@
 # Welpywelp
 
-<!-- [Heroku link][heroku]
+[Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com -->
+[heroku]: http://welpywelp.herokuapp.com/
 
 ## Minimum Viable Product
 Welpywelp! Is a yelp clone built on rails and backbone. Users will be able to:
