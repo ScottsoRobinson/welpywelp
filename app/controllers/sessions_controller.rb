@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if @user.nil?
       flash.now[:errors] = @user.errors.full_messages
       render :new
-    elseo
+    else
       login(@user)
       redirect_to user_url(@user.id)
     end
