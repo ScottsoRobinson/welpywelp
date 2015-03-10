@@ -4,7 +4,11 @@ window.WelpyWelp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+
+    new WelpyWelp.Routers.Router({
+      
+    })
+
   }
 };
 
