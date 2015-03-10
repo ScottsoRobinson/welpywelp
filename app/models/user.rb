@@ -4,6 +4,15 @@ class User < ActiveRecord::Base
   validates :username, :session_token, uniqueness: true
   after_initialize :ensure_session_token
 
+  has_many(
+    :restaurants,
+    class_name: "Restaurant",
+    foreign_key: :owner_id,
+    primary_key: :id
+  )
+
+  attr_reader :password
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil if user.nil?
@@ -15,9 +24,7 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def password
-    @password
-  end
+
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password);
