@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'bcrypt'
+gem 'bcrypt', require: 'bcrypt'
 # Use SCSS for stylesheets
 gem 'backbone-on-rails'
 gem 'sass-rails', '~> 5.0'
@@ -42,7 +42,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   # Gotta have byebug...
-  
+
   # pry > irb
   gem 'pry-rails'
 end
