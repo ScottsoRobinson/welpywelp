@@ -1,4 +1,4 @@
-WelpyWelp.Views.RestaurantsIndexItem = Backbone.View.extend({
+WelpyWelp.Views.RestaurantsIndexItem = Backbone.CompositeView.extend({
 
   tagName: "li",
 

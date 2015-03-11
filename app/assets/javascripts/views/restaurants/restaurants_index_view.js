@@ -1,4 +1,4 @@
-WelpyWelp.Views.RestaurantsIndex = Backbone.View.extend({
+WelpyWelp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
 
   tagName: "section",
 
@@ -25,9 +25,9 @@ WelpyWelp.Views.RestaurantsIndex = Backbone.View.extend({
       var restaurantView = new WelpyWelp.Views.RestaurantsIndexItem({
         model: restaurant
       });
-      this.$("ul.restaurants-list").append(restaurantView.render().$el);
+      this.addSubview('ul.restaurants-list', restaurantView)
     }.bind(this));
-
+    this.attachSubviews();
     return this;
   },
 
@@ -38,9 +38,7 @@ WelpyWelp.Views.RestaurantsIndex = Backbone.View.extend({
       model: restaurant,
       collection: this.collection
     });
-    this.$(".form-section").append(formView.render().$el);
-
-    return this;
+    this.addSubview(".form-section", formView);
   }
 
 });

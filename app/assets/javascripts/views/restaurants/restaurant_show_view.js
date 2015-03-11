@@ -1,4 +1,4 @@
-WelpyWelp.Views.RestaurantShow = Backbone.View.extend({
+WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
 
   tagName: "section",
 
@@ -20,6 +20,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.View.extend({
     });
     console.log(this.model.escape("name"));
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   },
 
@@ -29,7 +30,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.View.extend({
       model: this.model,
       collection: this.collection
     });
-    this.$("section.form-section").html(editView.render().$el);
+    this.addSubview('section.form-section', editView);
     return this;
   }
 

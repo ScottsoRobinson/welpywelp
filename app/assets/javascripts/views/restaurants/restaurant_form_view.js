@@ -1,4 +1,4 @@
-WelpyWelp.Views.RestaurantForm = Backbone.View.extend({
+WelpyWelp.Views.RestaurantForm = Backbone.CompositeView.extend({
 
   tagName: 'form',
 
