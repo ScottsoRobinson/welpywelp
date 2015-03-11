@@ -43,12 +43,12 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
   addReview: function (event) {
     event.preventDefault();
     var review = new WelpyWelp.Models.Review();
-
+    console.log("in add review")
     var reviewForm = new WelpyWelp.Views.ReviewForm({
       model: review,
       collection: this.model.reviews()
     });
-    this.addSubview('review-form-section', reviewForm);
+    this.addSubview('section.review-form-section', reviewForm);
     return this;
   },
 
