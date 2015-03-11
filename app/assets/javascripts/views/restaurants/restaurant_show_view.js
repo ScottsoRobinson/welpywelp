@@ -22,19 +22,34 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
     console.log(this.model.escape("name"));
     this.$el.html(content);
 
-    this.reviews();
+    this.reviewsList();
     this.attachSubviews();
     return this;
   },
 
-  reviews: function() {
-    this.model.reviews.each(function (review) {
-      
-    });
+  reviewsList: function() {
+
+    this.model.reviews().each(function (review) {
+
+      var reviewView = new WelpyWelp.Views.ReviewShow({
+        model: review,
+        collection: this.model.reviews()
+      })
+      this.addSubview('ul.reviews-list', reviewView);
+      return this;
+    }.bind(this));
   },
 
-  addReview: function () {
+  addReview: function (event) {
+    event.preventDefault();
+    var review = new WelpyWelp.Models.Review();
 
+    var reviewForm = new WelpyWelp.Views.ReviewForm({
+      model: review,
+      collection: this.model.reviews()
+    });
+    this.addSubview('review-form-section', reviewForm);
+    return this;
   },
 
   editForm: function (event) {
