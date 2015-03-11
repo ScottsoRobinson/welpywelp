@@ -23,6 +23,7 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
     event.preventDefault();
 
     var attrs = this.$el.serializeJSON();
+    debugger;
     this.model.set(attrs);
     this.model.save({}, {
       success: function () {
