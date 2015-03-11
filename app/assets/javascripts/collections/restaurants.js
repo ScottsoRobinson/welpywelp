@@ -2,6 +2,8 @@ WelpyWelp.Collections.Restaurants = Backbone.Collection.extend({
 
   url: "/api/restaurants",
 
+  model: WelpyWelp.Models.Restaurant,
+
   getOrFetch: function(id){
     var restaurant = this.get(id)
     var restaurants = this;
