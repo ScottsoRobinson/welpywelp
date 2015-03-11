@@ -1,0 +1,9 @@
+
+
+<label for="name">Name</label>
+<input type="text" name="restaurant[name]" value="<%= restaurant.escape("name") %>" id="name">
+
+<label for="cuisine">Cuisine</label>
+<input type="text" name="restaurant[cuisine]" value="<%= restaurant.escape("cuisine") %>" id="cuisine">
+
+<button class="create-restaurant"><%= restaurant.isNew() ? "Create" : "Edit" %> Restaurant</button>

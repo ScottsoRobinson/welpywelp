@@ -8,6 +8,7 @@ gem 'pg'
 gem 'bcrypt', require: 'bcrypt'
 # Use SCSS for stylesheets
 gem 'backbone-on-rails'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -57,6 +58,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
