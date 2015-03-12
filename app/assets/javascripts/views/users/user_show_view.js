@@ -10,6 +10,10 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
   },
 
+  events: {
+    "click button.user-form": "editUserInfo"
+  },
+
   render: function () {
     var content = this.template({
       user: this.model
@@ -28,6 +32,10 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
       this.addSubview('ul.reviews-list', reviewView);
       return this;
     }.bind(this));
+  },
+
+  editUserInfo: function () {
+    
   }
 
 

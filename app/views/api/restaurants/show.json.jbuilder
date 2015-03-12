@@ -1,6 +1,6 @@
 
 json.extract! @restaurant, :id, :name, :cuisine
-
+json.user_owned_review @restaurant.reviews.find_by(author_id: current_user.id).try(:id)
 json.reviews @restaurant.reviews do |review|
   json.id review.id
   json.author_id review.author_id

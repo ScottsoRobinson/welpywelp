@@ -6,12 +6,13 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.reviews(), "add", this.render);
+    this.listenTo(this.model.reviews(), "add change", this.render);
   },
 
   events:{
     "click button.edit-restaurant": "editRestaurantForm",
-    "click button.add-review": "addReview"
+    "click button.add-review": "addReview",
+    "click button.edit-review": "editReview"
   },
 
   template: JST['restaurants/show'],
@@ -51,6 +52,21 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
       model: review,
       collection: this.model.reviews()
     });
+    this.addSubview('section.review-form-section', reviewForm);
+    return this;
+  },
+
+  editReview: function (event) {
+    event.preventDefault();
+    var $id = $(event.currentTarget).attr("data-review-id");
+    var review = this.model.reviews().get($id);
+
+    var reviewForm = new WelpyWelp.Views.ReviewForm({
+      restaurant: this.model,
+      model: review,
+      collection: this.model.reviews()
+    });
+
     this.addSubview('section.review-form-section', reviewForm);
     return this;
   },
