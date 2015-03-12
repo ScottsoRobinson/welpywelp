@@ -6,6 +6,5 @@
 <%= review.escape("title") %>
 Rating is <%= review.escape("rating") %><br>
 <% if (review.get("belongs_to_current_user")){%>
-  <button class="edit-review">Edit Review</button>
-  <section class="review-form-section"></section>
+  <button class="edit-review" data-review-id="<%= review.get("id") %>">Edit Review</button>
 <% } %>

@@ -11,7 +11,8 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click button.user-form": "editUserInfo"
+    "click button.edit-user": "editUserInfo",
+    "click button.edit-review": "editReview"
   },
 
   render: function () {
@@ -34,7 +35,18 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  editUserInfo: function () {
+  editUserInfo: function (event) {
+    event.preventDefault();
+    var userForm = new WelpyWelp.Views.UserForm({
+      model: this.model,
+      collection: this.collection
+    });
+    this.addSubview('section.user-form-section', userForm);
+    return this;
+
+  },
+
+  editReview: function (event) {
     
   }
 
