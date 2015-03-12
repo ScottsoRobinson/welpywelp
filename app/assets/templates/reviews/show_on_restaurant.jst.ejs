@@ -2,4 +2,8 @@
 <%= review.escape("body") %><br>
 <%= review.escape("title") %>
 Rating is <%= review.escape("rating") %><br>
+<% if (review.get("belongs_to_current_user")){%>
+  <button class="edit-review">Edit Review</button>
+  <section class="review-form-section"></section>
+<% } %>
 <a href="#/users/<%= review.escape("author_id") %>"><%= review.escape("author_name") %></a>
