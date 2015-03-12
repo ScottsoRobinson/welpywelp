@@ -27,7 +27,7 @@ WelpyWelp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
       });
       this.addSubview('ul.restaurants-list', restaurantView)
     }.bind(this));
-    this.attachSubviews();
+    
     return this;
   },
 

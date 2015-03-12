@@ -6,6 +6,7 @@ WelpyWelp.Collections.Reviews = Backbone.Collection.extend({
 
   initialize: function(models, options) {
     this.restaurant = options.restaurant;
+    this.author = options.author;
   }
 
 });

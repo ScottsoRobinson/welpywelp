@@ -1,7 +1,6 @@
+json.extract! @user, :username, :email
 
-json.extract! @restaurant, :id, :name, :cuisine
-
-json.reviews @restaurant.reviews do |review|
+json.reviews @user.reviews do |review|
   json.id review.id
   json.author_id review.author_id
   json.restaurant_id review.restaurant_id
@@ -9,7 +8,6 @@ json.reviews @restaurant.reviews do |review|
   json.title review.title
   json.rating review.rating
   json.belongs_to_current_user current_user.id == review.author_id
-  json.author_name review.author.username
-  json.cuisine @restaurant.cuisine
-  json.restaurant_name @restaurant.name
+  json.author_name @user.username
 end
+json.is_current_user current_user == @user

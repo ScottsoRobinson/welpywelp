@@ -2,7 +2,7 @@ module Api
   class ReviewsController < ApiController
 
     def create
-      @review = Review.new(reviews_params)
+      @review = current_user.reviews.new(reviews_params)
 
       if @review.save
         render json: @review
@@ -26,7 +26,7 @@ module Api
     end
 
     def reviews_params
-      params.require(:reviews).permit(:title, :body, :rating)
+      params.require(:review).permit(:title, :body, :rating, :restaurant_id)
     end
   end
 end
