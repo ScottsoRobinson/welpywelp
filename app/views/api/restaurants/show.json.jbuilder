@@ -10,6 +10,6 @@ json.reviews @restaurant.reviews do |review|
   json.rating review.rating
   json.belongs_to_current_user current_user.id == review.author_id
   json.author_name review.author.username
-  json.cuisine @restaurant.cuisine
+  json.restaurant_cuisine @restaurant.cuisine
   json.restaurant_name @restaurant.name
 end

@@ -1,2 +1,9 @@
 <h2><%= user.escape("username") %>'s WelpyWelp Page</h2>
 <a href="#">All Restaurants</a>
+
+<% if (user.get("is_current_user")){%>
+  <button class="edit-user">Edit User Details</button>
+  <section class="user-form-section"></section>
+<% } %>
+
+<ul class="reviews-list"></ul>

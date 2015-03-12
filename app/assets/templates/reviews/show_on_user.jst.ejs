@@ -1,0 +1,11 @@
+<h4><a href="#/restaurants/<%= review.get("restaurant_id") %>"><%= review.escape("restaurant_name") %></a></h4>
+<br>
+<%= review.escape("restaurant_cuisine")%>
+<%= review.get("id") %><br>
+<%= review.escape("body") %><br>
+<%= review.escape("title") %>
+Rating is <%= review.escape("rating") %><br>
+<% if (review.get("belongs_to_current_user")){%>
+  <button class="edit-review">Edit Review</button>
+  <section class="review-form-section"></section>
+<% } %>
