@@ -6,6 +6,7 @@ window.WelpyWelp = {
   initialize: function() {
 
     WelpyWelp.restaurants = new WelpyWelp.Collections.Restaurants();
+    WelpyWelp.restaurants.fetch();
     WelpyWelp.users = new WelpyWelp.Collections.Users();
     new WelpyWelp.Routers.Router({
       $rootEl: $('main.main'),

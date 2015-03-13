@@ -6,7 +6,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.reviews(), "add change", this.render);
+    this.listenTo(this.model.reviews(), "add change sync", this.render);
   },
 
   events:{
@@ -48,9 +48,10 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
     var review = new WelpyWelp.Models.Review();
     console.log("in add review")
     var reviewForm = new WelpyWelp.Views.ReviewForm({
-      restaurant: this.model,
+      restaurant_id: this.model.id,
       model: review,
-      collection: this.model.reviews()
+      collection: this.model.reviews(),
+      from: "restaurants/" + this.model.id
     });
     this.addSubview('section.review-form-section', reviewForm);
     return this;
@@ -65,7 +66,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
       restaurant_id: this.model.id,
       model: review,
       collection: this.model.reviews(),
-      from: "restaurants/"
+      from: "restaurants/" + this.model.id
     });
 
     this.addSubview('section.review-form-section', reviewForm);

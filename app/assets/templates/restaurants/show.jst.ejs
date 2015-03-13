@@ -2,6 +2,11 @@
 <%= restaurant.get("id") %>
 <h2><%= restaurant.escape("name") %></h2>
 <%= restaurant.escape("cuisine") %><br>
+<% if (restaurant.get("average_rating") === null) { %>
+  rating is undetermined<br><br>
+<% } else { %>
+  rating is <%= restaurant.get("average_rating") %><br><br>
+<% } %>
 
 <button class="edit-restaurant">Edit Restaurant Details</button>
 <section class="form-section">

@@ -58,8 +58,9 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
       model: review,
       collection: this.model.reviews(),
       restaurant_id: review.get("restaurant_id"),
-      from: "users/"
+      from: "users/" + this.model.id
     });
+    console.log(review);
 
     this.addSubview('section.review-form-section', reviewForm);
     return this;

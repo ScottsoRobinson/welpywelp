@@ -12,8 +12,6 @@ WelpyWelp.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    this.collection.fetch();
-
     var indexView = new WelpyWelp.Views.RestaurantsIndex({
       collection: this.collection
     });

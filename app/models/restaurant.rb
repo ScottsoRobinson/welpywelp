@@ -15,4 +15,20 @@ class Restaurant < ActiveRecord::Base
     primary_key: :id
   )
 
+  def avg_rating
+    restaurant_reviews = Review.where(restaurant_id: self.id)
+
+    if restaurant_reviews.empty?
+      average_rating = nil
+    else
+      sum = 0
+      restaurant_reviews.each do |review|
+        sum += review.rating
+      end
+
+      average_rating = sum.to_f / restaurant_reviews.length
+    end
+    average_rating
+  end
+
 end
