@@ -27,11 +27,10 @@ WelpyWelp.Views.UserForm = Backbone.CompositeView.extend({
     var attrs = this.$el.serializeJSON();
 
     this.model.set(attrs);
-
+    
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, {merge: true});
-        Backbone.history.navigate("users/" + this.model.get(id), {trigger: true});
       }.bind(this),
       wait: true
     });
