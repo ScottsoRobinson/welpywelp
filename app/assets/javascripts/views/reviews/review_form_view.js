@@ -11,7 +11,8 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
   },
 
   initialize: function (options) {
-    this.restaurant = options.restaurant;
+    this.restaurant_id = options.restaurant;
+    this.from = options.from;
   },
 
   render: function () {
@@ -31,12 +32,12 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
     var attrs = this.$el.serializeJSON()['review'];
 
     this.model.set(attrs);
-    
-    this.model.set({restaurant_id: this.restaurant.get("id")});
+
+    this.model.set({restaurant_id: this.restaurant_id});
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, {merge: true});
-        Backbone.history.navigate("restaurants/" + this.model.get("restaurant_id"), {trigger: true});
+        Backbone.history.navigate(this.from + this.model.get("restaurant_id"), {trigger: true});
       }.bind(this),
       wait: true
     });

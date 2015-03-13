@@ -7,7 +7,8 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
   className: 'user-show-section',
 
   initialize: function (options) {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(this.model.reviews(), "change", this.render);
   },
 
   events: {
@@ -16,6 +17,7 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
+
     var content = this.template({
       user: this.model
     });
@@ -47,7 +49,20 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   editReview: function (event) {
-    
+    event.preventDefault();
+
+    var $id = $(event.currentTarget).attr("data-review-id")
+    var review = this.model.reviews().get($id);
+
+    var reviewForm = new WelpyWelp.Views.ReviewForm({
+      model: review,
+      collection: this.model.reviews(),
+      restaurant_id: review.get("restaurant_id"),
+      from: "users/"
+    });
+
+    this.addSubview('section.review-form-section', reviewForm);
+    return this;
   }
 
 

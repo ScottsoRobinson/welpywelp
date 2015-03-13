@@ -62,9 +62,10 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
     var review = this.model.reviews().get($id);
 
     var reviewForm = new WelpyWelp.Views.ReviewForm({
-      restaurant: this.model,
+      restaurant_id: this.model.id,
       model: review,
-      collection: this.model.reviews()
+      collection: this.model.reviews(),
+      from: "restaurants/"
     });
 
     this.addSubview('section.review-form-section', reviewForm);
@@ -75,7 +76,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
     event.preventDefault();
     var editView = new WelpyWelp.Views.RestaurantForm({
       model: this.model,
-      collection: this.collection
+      collection: this.collection,
     });
     this.addSubview('section.form-section', editView);
     return this;

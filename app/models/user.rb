@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :email, :session_token, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :username, :session_token, uniqueness: true
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true, on: :create
+
   after_initialize :ensure_session_token
 
   has_many(
@@ -39,7 +42,7 @@ class User < ActiveRecord::Base
 
   def reset_session_token
     self.session_token = SecureRandom.urlsafe_base64(16)
-    self.save
+    self.save!
     self.session_token
   end
 

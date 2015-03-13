@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         params[:user][:password]
     )
     if @user.nil?
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = ["login was incorrect"]
       render :new
     else
       login(@user)
