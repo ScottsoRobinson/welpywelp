@@ -39,6 +39,7 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
 
   editUserInfo: function (event) {
     event.preventDefault();
+    this.$('section.user-form-section').empty();
     var userForm = new WelpyWelp.Views.UserForm({
       model: this.model,
       collection: this.collection
@@ -50,7 +51,7 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
 
   editReview: function (event) {
     event.preventDefault();
-
+    this.$('section.review-form-section').empty();
     var $id = $(event.currentTarget).attr("data-review-id")
     var review = this.model.reviews().get($id);
 
