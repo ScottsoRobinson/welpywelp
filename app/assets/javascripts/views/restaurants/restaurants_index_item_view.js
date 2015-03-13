@@ -6,6 +6,10 @@ WelpyWelp.Views.RestaurantsIndexItem = Backbone.CompositeView.extend({
 
   template: JST['restaurants/index_item'],
 
+  initialize: function () {
+    this.listenTo(this.model.reviews(), "change sync add", this.render);
+  },
+
   render: function () {
     var content = this.template({
       restaurant: this.model

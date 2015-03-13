@@ -7,7 +7,7 @@ WelpyWelp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   template: JST['restaurants/index'],
 
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync add change", this.render);
   },
 
   events:{
@@ -27,7 +27,7 @@ WelpyWelp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
       });
       this.addSubview('ul.restaurants-list', restaurantView)
     }.bind(this));
-    
+
     return this;
   },
 

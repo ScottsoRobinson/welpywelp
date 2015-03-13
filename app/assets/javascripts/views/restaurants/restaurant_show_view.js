@@ -18,7 +18,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
   template: JST['restaurants/show'],
 
   render: function () {
-
+    
     var content = this.template({
       restaurant: this.model
     });

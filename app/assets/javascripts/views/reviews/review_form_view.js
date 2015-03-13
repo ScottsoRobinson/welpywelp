@@ -36,7 +36,7 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
     this.model.set({restaurant_id: this.restaurant_id});
     this.model.save({}, {
       success: function () {
-        var rest = WelpyWelp.restaurants.get(this.restaurant_id);
+        var rest = WelpyWelp.restaurants.getOrFetch(this.restaurant_id);
         rest.set({user_owned_review: this.model.id});
 
         this.collection.add(this.model, {merge: true});
