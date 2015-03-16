@@ -25,6 +25,13 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :review_pictures,
+    class_name: "ReviewPicture",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

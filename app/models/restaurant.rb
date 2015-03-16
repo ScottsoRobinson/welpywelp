@@ -15,6 +15,8 @@ class Restaurant < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :review_pictures, through: :reviews, source: :review_pictures
+
   def avg_rating
     restaurant_reviews = Review.where(restaurant_id: self.id)
 

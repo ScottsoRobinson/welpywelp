@@ -17,5 +17,12 @@ class Review < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :review_pictures,
+    class_name: "ReviewPicture",
+    foreign_key: :review_id,
+    primary_key: :id
+  )
+
 
 end
