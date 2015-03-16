@@ -4,4 +4,11 @@
 <br>
 <label for="rating">Rating, 1 to 5</label>
 <input type="number" name="review[rating]" value="<%= review.escape("rating") %>">
+
+<label>Picture
+<input type="file" name="review[pictures]" value="" id="input-picture-files" multiple></label>
 <button class="submit-review">Submit Review</button>
+<br>
+<ul id="picture-preview">
+
+</ul>

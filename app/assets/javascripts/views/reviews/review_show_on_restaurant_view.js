@@ -16,6 +16,18 @@ WelpyWelp.Views.ReviewShowOnRestaurant = Backbone.CompositeView.extend({
       review: this.model
     });
     this.$el.html(content);
+    console.log("in review show on restaurant view");
+    this.model.reviewPictures().each(function () {
+      console.log("in review render")
+
+      var picView = new WelpyWelp.Views.ReviewPicture({
+        model: this.model
+      });
+
+      this.addSubview('ul.picture-show', reviewView);
+      return this;
+
+    }.bind(this));
 
     return this;
   }

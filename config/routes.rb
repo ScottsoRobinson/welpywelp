@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :restaurants, except: [:new, :edit, :destroy]
     resources :reviews, only: [:create, :update]
     resources :users, only: [:show, :update]
+    resources :review_pictures, only: [:create, :update, :destroy]
   end
 end

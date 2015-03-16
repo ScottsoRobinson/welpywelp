@@ -26,7 +26,7 @@ module Api
     end
 
     def reviews_params
-      params.require(:review).permit(:title, :body, :rating, :restaurant_id)
+      params.require(:review).permit(:title, :body, :rating, :restaurant_id, :review_pictures => [])
     end
   end
 end

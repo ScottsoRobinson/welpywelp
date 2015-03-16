@@ -14,10 +14,11 @@ class ReviewPicture < ActiveRecord::Base
     foreign_key: :review_id,
     primary_key: :id
   )
-  
-  has_attached_file :picture, default_url: "https://s3.amazonaws.com/welpydev/user-avatar.jpeg",
-  :styles => {huge: "450x450#", large: "300x300#", medium: "150x150#", thumbnail: "60x60#"}
+
+  has_attached_file :picture, :styles => {huge: "450x450#", large: "300x300#", medium: "150x150#", thumbnail: "60x60#"}
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\z/
+
+
 
 
 end

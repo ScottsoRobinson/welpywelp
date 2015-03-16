@@ -6,7 +6,7 @@ WelpyWelp.Models.Restaurant = Backbone.Model.extend({
     if (!this._reviews) {
       this._reviews = new WelpyWelp.Collections.Reviews([], {restaurant: this});
     }
-
+    
     return this._reviews
   },
 

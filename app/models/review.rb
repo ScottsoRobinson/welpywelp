@@ -24,5 +24,10 @@ class Review < ActiveRecord::Base
     primary_key: :id
   )
 
+  def review_pictures=(pictures)
+    pictures.each do |picture|
+      self.review_pictures.build(picture: picture,user_id: self.author_id)
+    end
+  end
 
 end
