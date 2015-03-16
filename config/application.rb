@@ -23,7 +23,7 @@ module WelpyWelp
 
     config.paperclip_defaults = {
       storage: :s3,
-      path: "images/:class/:id.:style.:extension"
+      path: "images/:class/:id.:style.:extension",
       s3_credentials: {
         bucket: ENV["S3_BUCKET"],
         access_key_id: ENV["S3_ACCESS_KEY_ID"],

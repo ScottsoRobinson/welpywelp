@@ -7,3 +7,5 @@ json.reviews @user.reviews do |review|
   json.restaurant_name review.restaurant.name
 end
 json.is_current_user current_user == @user
+
+json.picture_url @user.picture.url(:medium)

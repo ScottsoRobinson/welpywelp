@@ -1,4 +1,6 @@
 <h2><%= user.escape("username") %>'s WelpyWelp Page</h2>
+
+<img src="<%= user.escape("picture_url") %>" alt="" />
 <a href="#">All Restaurants</a>
 
 <% if (user.get("is_current_user")){%>
