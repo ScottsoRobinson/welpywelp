@@ -22,10 +22,10 @@ WelpyWelp.Models.Review = Backbone.Model.extend({
     return response;
   },
 
-  // toJSON: function () {
-  //   return {
-  //     review: _.clone(this.attributes)
-  //   };
-  // },
+  toJSON: function () {
+    return {
+      review: _.clone(this.attributes)
+    };
+  },
 
 });

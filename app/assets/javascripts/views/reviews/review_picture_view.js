@@ -7,7 +7,7 @@ WelpyWelp.Views.ReviewPicture = Backbone.CompositeView.extend({
   render: function () {
     console.log("in review picture render")
     var content = this.template({
-      review: this.model
+      picture: this.model
     });
 
     this.$el.html(content);

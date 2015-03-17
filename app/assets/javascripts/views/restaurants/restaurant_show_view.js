@@ -33,7 +33,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
   reviewsList: function() {
 
     this.model.reviews().each(function (review) {
-
+      console.log("in reviewslist");
       var reviewView = new WelpyWelp.Views.ReviewShowOnRestaurant({
         model: review,
         collection: this.model.reviews()

@@ -13,13 +13,13 @@ WelpyWelp.Views.ReviewShowOnUser = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
 
-    this.model.reviewPictures().each(function () {
+    this.model.reviewPictures().each(function (picture) {
 
       var picView = new WelpyWelp.Views.ReviewPicture({
-        model: this.model
+        model: picture
       });
 
-      this.addSubview('ul.picture-show', reviewView);
+      this.addSubview('ul.picture-show', picView);
       return this;
 
     }.bind(this));
