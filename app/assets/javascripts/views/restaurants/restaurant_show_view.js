@@ -5,7 +5,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
   className: "restaurant-show",
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change:user_owned_review", this.render);
     this.listenTo(this.model.reviews(), "add sync", this.render);
   },
 

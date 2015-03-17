@@ -46,6 +46,9 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
 
         this.collection.add(this.model, {merge: true});
       }.bind(this),
+      error: function (model, data) {
+        console.log(data.responseText);
+      },
       wait: true
     });
   },

@@ -7,7 +7,8 @@ class Review < ActiveRecord::Base
     :author,
     class_name: "User",
     foreign_key: :author_id,
-    primary_key: :id
+    primary_key: :id,
+    inverse_of: :reviews
   )
 
   belongs_to(
@@ -21,12 +22,14 @@ class Review < ActiveRecord::Base
     :review_pictures,
     class_name: "ReviewPicture",
     foreign_key: :review_id,
-    primary_key: :id
+    primary_key: :id,
+    inverse_of: :review
   )
 
   def review_pictures=(pictures)
     pictures.each do |picture|
-      self.review_pictures.build(picture: picture,user_id: self.author_id)
+      
+      self.review_pictures.build(picture: picture, author: self.author)
     end
   end
 

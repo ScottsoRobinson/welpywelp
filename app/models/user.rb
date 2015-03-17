@@ -22,14 +22,16 @@ class User < ActiveRecord::Base
     :reviews,
     class_name: "Review",
     foreign_key: :author_id,
-    primary_key: :id
+    primary_key: :id,
+    inverse_of: :author
   )
 
   has_many(
     :review_pictures,
     class_name: "ReviewPicture",
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    inverse_of: :author
   )
 
   attr_reader :password

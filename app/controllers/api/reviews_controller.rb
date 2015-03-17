@@ -3,7 +3,7 @@ module Api
 
     def create
       @review = current_user.reviews.new(reviews_params)
-
+      @review.review_pictures = params[:review][:review_pictures]
       if @review.save
         render :show
       else
@@ -26,7 +26,7 @@ module Api
     end
 
     def reviews_params
-      params.require(:review).permit(:title, :body, :rating, :restaurant_id, :review_pictures => [])
+      params.require(:review).permit(:title, :body, :rating, :restaurant_id)
     end
   end
 end
