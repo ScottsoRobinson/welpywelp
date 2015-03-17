@@ -8,7 +8,7 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
-    // this.listenTo(this.model.reviews(), "change", this.render);
+    this.listenTo(this.model.reviews(), "sync add", this.render);
   },
 
   events: {
