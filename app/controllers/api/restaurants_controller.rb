@@ -38,6 +38,11 @@ module Api
       end
     end
 
+    def search
+      @search_results = Restaurant.search_by_restaurant_name(params[:query])
+
+      render :search
+    end
     # def edit
     #   @restaurant = Restaurant.find(params[:id])
     #   render :edit

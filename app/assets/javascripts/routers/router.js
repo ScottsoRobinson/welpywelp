@@ -7,8 +7,16 @@ WelpyWelp.Routers.Router = Backbone.Router.extend({
 
   routes:{
     "": "index",
+    "restaurants/search": "search",
     "restaurants/:id": "showRestaurant",
-    "users/:id": "showUser"
+    "users/:id": "showUser",
+
+  },
+
+  search: function () {
+    var view = new WelpyWelp.Views.RestaurantSearch();
+    
+    this._swapView(view);
   },
 
   index: function () {

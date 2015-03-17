@@ -17,6 +17,15 @@ class Restaurant < ActiveRecord::Base
 
   has_many :review_pictures, through: :reviews, source: :review_pictures
 
+
+  include PgSearch
+
+  pg_search_scope :search_by_restaurant_name,
+                  :against => :name,
+                  :using => {
+                    tsearch: {prefix: true}
+                    }
+
   def avg_rating
     restaurant_reviews = Review.where(restaurant_id: self.id)
 
