@@ -28,7 +28,6 @@ class Review < ActiveRecord::Base
 
   def review_pictures=(pictures)
     pictures.each do |picture|
-      
       self.review_pictures.build(picture: picture, author: self.author)
     end
   end

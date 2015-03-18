@@ -1,4 +1,5 @@
 name is <a href="#/restaurants/<%= restaurant.get("id") %>"><%=restaurant.escape("name")%></a><br>
+<img src="<%= restaurant.escape("picture") %>" alt="" />
 cuisine is <%=restaurant.escape("cuisine")%> <br>
 <% if (restaurant.get("average_rating") === null) { %>
   rating is undetermined<br><br>

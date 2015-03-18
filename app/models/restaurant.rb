@@ -42,4 +42,8 @@ class Restaurant < ActiveRecord::Base
     average_rating
   end
 
+  def first_pic
+    
+  end
+
 end

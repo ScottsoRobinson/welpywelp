@@ -1,5 +1,5 @@
 <a href="#">Restaurants Index</a>
-<%= restaurant.get("id") %>
+<img src="<%= restaurant.escape("picture") %>" alt="" />
 <h2><%= restaurant.escape("name") %></h2>
 <%= restaurant.escape("cuisine") %><br>
 <% if (restaurant.get("average_rating") === null) { %>
