@@ -9,15 +9,22 @@
 <% } %>
 
 <button class="edit-restaurant">Edit Restaurant Details</button>
+
 <section class="form-section">
 </section>
+
 <% if (restaurant.get("user_owned_review")) {%>
   <button class="edit-review" data-review-id="<%= restaurant.get("user_owned_review") %>">Edit My Review</button>
 <% } else { %>
   <button class="add-review">Write Review</button>
 <% } %>
+
 <section class="review-form-section"></section>
+
+
+
 <ul class="reviews-list">
 </ul>
+
 <section class="errors">
 </section>
