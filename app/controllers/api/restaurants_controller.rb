@@ -50,7 +50,7 @@ module Api
     # end
 
     def restaurant_params
-      params.require(:restaurant).permit(:owner_id, :name, :cuisine)
+      params.require(:restaurant).permit(:owner_id, :name, :cuisine, :address)
     end
 
   end

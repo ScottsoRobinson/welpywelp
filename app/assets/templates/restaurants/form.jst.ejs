@@ -6,4 +6,7 @@
 <label for="cuisine">Cuisine</label>
 <input type="text" name="restaurant[cuisine]" value="<%= restaurant.escape("cuisine") %>" id="cuisine">
 
+<label for="address">Address</label>
+<input type="text" name="restaurant[address]" value="<%= restaurant.escape("address") %>" id="address">
+
 <button class="create-restaurant"><%= restaurant.isNew() ? "Create" : "Edit" %> Restaurant</button>

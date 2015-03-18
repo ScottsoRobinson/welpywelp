@@ -10,6 +10,8 @@ json.results do
     json.cuisine restaurant.cuisine
     json.id restaurant.id
     json.average_rating restaurant.avg_rating
+    json.latitude restaurant.latitude
+    json.longitude restaurant.longitude
     if !restaurant.review_pictures.empty?
       json.picture restaurant.review_pictures.first.picture.url(:thumbnail)
     else
