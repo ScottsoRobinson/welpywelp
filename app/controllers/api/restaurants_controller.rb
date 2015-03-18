@@ -39,8 +39,9 @@ module Api
     end
 
     def search
-      @search_results = Restaurant.search_by_restaurant_name(params[:query])
-
+      @search_results = Restaurant
+                            .search_by_restaurant_name(params[:query])
+                            .page(params[:page])
       render :search
     end
     # def edit

@@ -26,6 +26,8 @@ class Restaurant < ActiveRecord::Base
                     tsearch: {prefix: true}
                     }
 
+  paginates_per 5
+
   def avg_rating
     restaurant_reviews = Review.where(restaurant_id: self.id)
 
@@ -43,7 +45,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def first_pic
-    
+
   end
 
 end

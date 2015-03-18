@@ -2,7 +2,18 @@
 	Query
 	<input type="text" class="query">
 </label>
+<nav>
+	<% if (results.pageNum > 1) { %>
+		<a class="prev-page" href="javascript:void(0)">Previous Page</a>
+	<% } %>
+	<% if (results.pageNum < results.total_pages) { %>
+		<a class="next-page" href="javascript:void(0)">Next Page</a>
+	<% } %>
 
+
+
+
+</nav>
 <ul class="restaurants-search-list">
 
 </ul>
