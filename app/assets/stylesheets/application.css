@@ -138,10 +138,12 @@ a.sign {
 /*.sign .input{
   text-align: center;
 }*/
-
+header {
+  background: #b4373a;
+}
 .header {
   width: 1000px;
-  background: #b4373a;
+
   margin: 0 auto;
 }
 

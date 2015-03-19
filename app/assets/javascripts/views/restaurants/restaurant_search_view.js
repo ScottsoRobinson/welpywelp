@@ -9,6 +9,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
 
   events: {
     "change .query": "search",
+    "click .query-button": "search",
     "click .next-page": "nextPage",
 		"click .prev-page": "prevPage"
   },
