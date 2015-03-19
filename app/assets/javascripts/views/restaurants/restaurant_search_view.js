@@ -21,9 +21,9 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
       results: this.searchResults
     });
     this.$el.html(content);
-
+    this.renderMap();
     if (this.searchResults.length > 0){
-      this.renderMap();
+
       this.searchResultsList();
     }
 
@@ -37,12 +37,12 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
       mapyTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var mapView = new WelpyWelp.Views.RestaurantMap({
+    this.mapView = new WelpyWelp.Views.RestaurantMap({
       mapOptions: mapOptions,
       collection: this.searchResults
     });
 
-    this.addSubview('section.map', mapView);
+    this.addSubview('section.map', this.mapView);
 
   },
 
@@ -62,6 +62,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
 
   search: function (event) {
     event.preventDefault();
+
     this.searchResults.pageNum = 1;
     this.searchResults.query = this.$(".query").val();
 
@@ -70,7 +71,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
         query: this.searchResults.query,
         page: 1
       },
-      
+
     });
   },
 

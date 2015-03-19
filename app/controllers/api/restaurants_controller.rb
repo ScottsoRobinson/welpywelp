@@ -40,7 +40,7 @@ module Api
 
     def search
       @search_results = Restaurant
-                            .search_by_restaurant_name(params[:query])
+                            .search_by_restaurant(params[:query])
                             .page(params[:page])
       render :search
     end

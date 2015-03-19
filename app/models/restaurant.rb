@@ -22,8 +22,8 @@ class Restaurant < ActiveRecord::Base
 
   include PgSearch
 
-  pg_search_scope :search_by_restaurant_name,
-                  :against => :name,
+  pg_search_scope :search_by_restaurant,
+                  :against => [:name, :cuisine],
                   :using => {
                     tsearch: {prefix: true}
                     }
