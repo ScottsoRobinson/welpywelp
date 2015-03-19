@@ -39,9 +39,17 @@ module Api
     end
 
     def search
+
+      filter_data = params[:filter_data]
+      lat_min = filter_data['lat'][0]
+      lat_max = filter_data['lat'][1]
+      lng_min = filter_data['lng'][0]
+      lng_max = filter_data['lng'][1]
       @search_results = Restaurant
                             .search_by_restaurant(params[:query])
                             .page(params[:page])
+                            .where("latitude BETWEEN #{lat_min} AND #{lat_max}")
+                            .where("longitude BETWEEN #{lng_min} AND #{lng_max}")
       render :search
     end
     # def edit

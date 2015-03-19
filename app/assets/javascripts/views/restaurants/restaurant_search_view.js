@@ -31,11 +31,20 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
   },
 
   renderMap: function () {
-    var mapOptions = {
-      center: new google.maps.LatLng(40.725040, -73.996833),
-      zoom: 13,
-      mapyTypeId: google.maps.MapTypeId.ROADMAP
-    };
+    if (typeof this.mapCenter === "undefined"){
+      var mapOptions = {
+        center: new google.maps.LatLng(40.725040, -73.996833),
+        zoom: 13,
+        mapyTypeId: google.maps.MapTypeId.ROADMAP
+      };
+    }else{
+      var mapOptions = {
+        center: this.mapCenter,
+        zoom: this.mapZoom,
+        mapyTypeId: google.maps.MapTypeId.ROADMAP
+      };
+    }
+
 
     this.mapView = new WelpyWelp.Views.RestaurantMap({
       mapOptions: mapOptions,
@@ -62,12 +71,21 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
 
   search: function (event) {
     event.preventDefault();
-
+    var mapBounds = this.mapView._map.getBounds();
+    var ne = mapBounds.getNorthEast();
+    var sw = mapBounds.getSouthWest();
+    this.mapCenter = this.mapView._map.getCenter();
+    this.mapZoom = this.mapView._map.getZoom();
+    var filterData = {
+      lat: [sw.lat(), ne.lat()],
+      lng: [sw.lng(), ne.lng()]
+    };
     this.searchResults.pageNum = 1;
     this.searchResults.query = this.$(".query").val();
 
     this.searchResults.fetch({
       data: {
+        filter_data: filterData,
         query: this.searchResults.query,
         page: 1
       },
