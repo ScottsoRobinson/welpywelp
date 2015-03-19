@@ -4,7 +4,7 @@ WelpyWelp.Views.RestaurantMap = Backbone.CompositeView.extend({
 
     this._markers = {};
     this.mapOptions = options.mapOptions;
-
+    
   },
 
   attributes: {
