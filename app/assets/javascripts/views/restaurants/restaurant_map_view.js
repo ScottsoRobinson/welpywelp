@@ -4,7 +4,7 @@ WelpyWelp.Views.RestaurantMap = Backbone.CompositeView.extend({
 
     this._markers = {};
     this.mapOptions = options.mapOptions;
-    
+
   },
 
   attributes: {
@@ -33,8 +33,13 @@ WelpyWelp.Views.RestaurantMap = Backbone.CompositeView.extend({
   render: function () {
     console.log("in restaurant map view");
     this._map = new google.maps.Map(this.el, this.mapOptions);
-
-    this.addMarker(this.model);
+    if (this.collection){
+      this.collection.each( function (restaurant) {
+        this.addMarker(restaurant)
+      }.bind(this));
+    }else{
+      this.addMarker(this.model);
+    }
   }
 
 });

@@ -4,7 +4,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
     this.searchResults = new WelpyWelp.Collections.RestaurantSearchResults();
     this.searchResults.pageNum = 1;
 
-		this.listenTo(this.searchResults, "sync", this.render);
+    this.listenTo(this.searchResults, "sync", this.render);
   },
 
   events: {
@@ -16,19 +16,38 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
   template: JST['restaurants/search'],
 
   render: function () {
-
+    console.log("in search render");
     var content = this.template({
       results: this.searchResults
     });
     this.$el.html(content);
 
-    this.searchResultsList();
+    if (this.searchResults.length > 0){
+      this.renderMap();
+      this.searchResultsList();
+    }
 
     return this;
   },
 
-  searchResultsList: function () {
+  renderMap: function () {
+    var mapOptions = {
+      center: new google.maps.LatLng(40.725040, -73.996833),
+      zoom: 13,
+      mapyTypeId: google.maps.MapTypeId.ROADMAP
+    };
 
+    var mapView = new WelpyWelp.Views.RestaurantMap({
+      mapOptions: mapOptions,
+      collection: this.searchResults
+    });
+
+    this.addSubview('section.map', mapView);
+
+  },
+
+  searchResultsList: function () {
+    console.log("in search results");
     this.searchResults.each(function (item) {
       var searchView = new WelpyWelp.Views.RestaurantSearchItem({
         model: item
@@ -50,7 +69,8 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
       data: {
         query: this.searchResults.query,
         page: 1
-      }
+      },
+      
     });
   },
 
@@ -62,6 +82,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
       },
       success: function () {
         this.searchResults.pageNum = this.searchResults.pageNum + 1;
+
       }.bind(this)
     });
   },
@@ -74,6 +95,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
       },
       success: function () {
         this.searchResults.pageNum = this.searchResults.pageNum - 1;
+
       }.bind(this)
 
     });

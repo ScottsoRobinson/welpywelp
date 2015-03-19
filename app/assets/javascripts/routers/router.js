@@ -6,7 +6,7 @@ WelpyWelp.Routers.Router = Backbone.Router.extend({
   },
 
   routes:{
-    "": "index",
+    "": "search",
     "restaurants/search": "search",
     "restaurants/:id": "showRestaurant",
     "users/:id": "showUser",
