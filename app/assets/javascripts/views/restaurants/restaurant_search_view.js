@@ -76,7 +76,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
     var sw = mapBounds.getSouthWest();
     this.mapCenter = this.mapView._map.getCenter();
     this.mapZoom = this.mapView._map.getZoom();
-    var filterData = {
+    this.filterData = {
       lat: [sw.lat(), ne.lat()],
       lng: [sw.lng(), ne.lng()]
     };
@@ -85,7 +85,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
 
     this.searchResults.fetch({
       data: {
-        filter_data: filterData,
+        filter_data: this.filterData,
         query: this.searchResults.query,
         page: 1
       },
@@ -96,6 +96,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
   nextPage: function (event) {
     this.searchResults.fetch({
       data: {
+        filter_data: this.filterData,
         query: this.searchResults.query,
         page: this.searchResults.pageNum + 1
       },
@@ -109,6 +110,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
   prevPage: function (event) {
     this.searchResults.fetch({
       data: {
+        filter_data: this.filterData,
         query: this.searchResults.query,
         page: this.searchResults.pageNum - 1
       },
