@@ -14,7 +14,8 @@
  *= require_self
  */
  html, head, body, header,
- nav, h1, a, ul, li, main,
+ nav, h1, h2, h3, h4, h5,
+ a, ul, li, main,
  section, p, footer, small {
    margin: 0;
    padding: 0;
@@ -34,8 +35,23 @@
    display: block;
  }
 
+ input,
+ button,
+ textarea {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+ }
+
  ul {
    list-style: none;
+ }
+
+ body {
+   font-family: sans-serif;
+   font-size: 16px;
+
+
  }
 
  /* Clearfix */
@@ -45,7 +61,94 @@
    clear: both;
  }
 
-#map-canvas{ 
-  width: 500px;
-  height: 400px;
+
+/* Sign-in and Sign-up */
+
+div.sign {
+
+  background-image: url("nyc_black_and_white.jpg");
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+span.sign-up{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 150px;
+  transform: translateX(-50%) translateY(-50%);
+  background: #fff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+span.sign-in{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 110px;
+  transform: translateX(-50%) translateY(-50%);
+  background: #fff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+
+h2.sign{
+  text-align: center;
+  font-size: 24px;
+},
+
+.sign .input > label{
+  display:block;
+  float: left;
+}
+
+.sign .input > input{
+
+}
+
+button.sign{
+  display: block;
+  padding: 5px;
+  color: green;
+
+}
+
+
+
+a.sign {
+  display: block;
+  padding: 10px 5px;
+  background: green;
+  color: white;
+  float: right;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+/*.sign .input{
+  text-align: center;
+}*/
+
+.header {
+  width: 1000px;
+  background: #b4373a;
+  margin: 0 auto;
+}
+
+
+#map-canvas{
+  display: block;
+  margin: 0 auto;
+  width: 600px;
+  height: 600px;
 }

@@ -1,25 +1,34 @@
-<h2>Sign Up</h2>
+<div class="sign">
+<span class="sign-up">
 
-<form  action="<%= users_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h2 class="sign">WelpyWelp</h2>
 
-  <label for="username">Username</label>
-  <input type="text" name="user[username]" value="<%= @user.username%>" id="username">
+  <form class="sign" action="<%= users_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="input">
+      <label for="username">Username</label>
+      <input type="text" name="user[username]" value="<%= @user.username%>" id="username">
+    </div>
 
-  <label for="email">Email</label>
-  <input type="text" name="user[email]" value="<%= @user.email %>" id="email">
+    <div class="input">
+      <label for="email">Email</label>
+      <input type="text" name="user[email]" value="<%= @user.email %>" id="email">
+    </div>
 
-  <label for="password">Password</label>
-  <input type="password" name="user[password]" value="" id="password">
+    <div class="input">
+      <label for="password">Password</label>
+      <input type="password" name="user[password]" value="" id="password">
+    </div>
 
-  <label for="password_confirmation">Confirm Password</label>
-  <input type="password" name="user[password_confirmation]" value="" id="password_confirmation">
+    <div class="input">
+      <label for="password_confirmation">Confirm Password</label>
+      <input type="password" name="user[password_confirmation]" value="" id="password_confirmation">
+    </div>
 
-  <!-- <label>
-		Picture
-		<input type="file" name="user[picture]">
-	</label> -->
-
-  <input type="submit" value="Sign Up">
-</form>
-<a href="<%= new_session_url %>">Or Sign In</a>
+    <div class="buttons">
+      <button class="sign">Sign Up</button>
+      <a class="sign" href="<%= new_session_url %>">Or Sign In</a>
+    </div>
+  </form>
+</span>
+</div>

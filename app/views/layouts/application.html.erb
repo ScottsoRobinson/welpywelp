@@ -11,15 +11,23 @@
 </head>
 <body>
 
+
 <% if logged_in? %>
-  <a href="#/users/<%= current_user.id %>">Your User Page</a>
+<!-- <header class="header group">
+  <h1 class="header-logo">
+    <a href="#">WelpyWelp</a>
+  </h1>
+  <a class="user-page" href="#/users/<%= current_user.id %>">Your User Page</a>
   <form  action="<%=session_url%>" method="post">
     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
     <input type="hidden" name="_method" value="DELETE">
     <button>Sign Out</button>
 
   </form>
+</header> -->
+
 <% end %>
+
 
 <%= render "layouts/errors" %>
 <%= yield %>
