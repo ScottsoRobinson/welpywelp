@@ -1,12 +1,15 @@
-<h2><%= user.escape("username") %>'s WelpyWelp Page</h2>
 
-<img src="<%= user.escape("picture_url") %>" alt="" />
-<a href="#">All Restaurants</a>
+<section class="sidebar group">
 
-<% if (user.get("is_current_user")){%>
-  <button class="edit-user">Edit User Details</button>
-  <section class="user-form-section"></section>
-  <section class="review-form-section"></section>
-<% } %>
+
+  <img class="profile-pic" src="<%= user.escape("picture_url") %>" alt="" />
+  <h2 class="name"><%= user.escape("username") %></h2>
+
+  <% if (user.get("is_current_user")){%>
+    <button class="edit-user">Edit User Details</button>
+    <section class="user-form-section"></section>
+    <section class="review-form-section"></section>
+  <% } %>
+</section>
 
 <ul class="reviews-list"></ul>

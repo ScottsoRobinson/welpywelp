@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- html, head, body, header,
+ html, head, body, button, header,
  nav, h1, h2, h3, h4, h5,
  a, ul, li, main,
  section, p, footer, small {
@@ -138,14 +138,125 @@ a.sign {
 /*.sign .input{
   text-align: center;
 }*/
+
+/* HEADER */
+
+
 header {
   background: #b4373a;
+  border-bottom: 1px solid #ccc;
 }
-.header {
-  width: 1000px;
+nav.header {
+  width: 900px;
 
   margin: 0 auto;
 }
+
+.header-logo {
+
+}
+.header-logo a{
+  display: block;
+  font-size: 28px;
+  color: #fff;
+  float: left;
+  padding: 20px 10px;
+  font-weight: bold;
+
+}
+.header-logo a:hover {
+  color: #b4373a;
+  background: #000;
+}
+
+.header-links {
+  float: right;
+}
+
+.user-page-link {
+  display: block;
+  float: left;
+
+  padding: 26px 10px;
+  color: white;
+
+}
+.user-page-link:hover {
+  background: #000;
+}
+.sign-out-form {
+  display: block;
+
+  float: right;
+
+}
+button.sign-out{
+  color: #fff;
+  padding: 26px 10px;
+  background: #b4373a;
+}
+
+button.sign-out:hover {
+  cursor: pointer;
+  background: #000;
+}
+
+
+
+/* GENERAL CENTERING */
+body{
+
+}
+
+img{
+  border-radius: 10px;
+}
+main.main {
+  background: #eee;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+/* USER PAGE */
+.user-show-section{
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  width: 860px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 299px;
+  height: 400px;
+  border-right: 1px solid #ccc;
+  float: left;
+}
+.profile-pic {
+  display: block;
+  border-radius: 10px;
+  margin: 0 0 20px 0;
+  float: left;
+}
+.name{
+  display: block;
+  float: left;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.reviews-list {
+  display: block;
+  width: 540px;
+  float: right;
+  padding: 0 0 0 20px;
+}
+
 
 
 #map-canvas{

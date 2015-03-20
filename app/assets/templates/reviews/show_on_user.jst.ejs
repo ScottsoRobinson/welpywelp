@@ -8,7 +8,7 @@ Rating is <%= review.escape("rating") %><br>
 <ul class="picture-show">
 
 </ul>
-<br>
 <% if (review.get("belongs_to_current_user")){%>
   <button class="edit-review" data-review-id="<%= review.get("id") %>">Edit Review</button>
 <% } %>
+<br>

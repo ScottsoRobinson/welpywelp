@@ -4,11 +4,11 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
 
   tagName: 'section',
 
-  className: 'user-show-section',
+  className: 'user-show-section group',
 
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.reviews(), "sync add", this.render);
+    this.listenTo(this.model.reviews(), "sync", this.render);
   },
 
   events: {

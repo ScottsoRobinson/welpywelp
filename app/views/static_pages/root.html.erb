@@ -1,16 +1,27 @@
-<header class="header group">
+<header class="header">
+  <nav class="header group">
   <h1 class="header-logo">
     <a href="#">WelpyWelp</a>
   </h1>
-  <a class="user-page" href="#/users/<%= current_user.id %>">Your User Page</a>
-  <form  action="<%=session_url%>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-    <input type="hidden" name="_method" value="DELETE">
-    <button>Sign Out</button>
+    <div class="header-links group">
 
-  </form>
+      <a class="user-page-link" href="#/users/<%= current_user.id %>">Your User Page</a>
+      <form class="sign-out-form" action="<%=session_url%>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="sign-out">Sign Out</button>
+
+      </form>
+  </div>
+  </nav>
 </header>
 <main class="main">
 
 </main>
-<script>$(WelpyWelp.initialize);</script>
+
+<footer>
+  <a href="http://www.linkedin.com/in/scottmorrisrobinson/en" target="_blank">Made By Scott Robinson</a>
+</footer>
+<script>
+
+$(WelpyWelp.initialize);</script>
