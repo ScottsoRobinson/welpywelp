@@ -14,7 +14,7 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
     "click button.edit-restaurant": "editRestaurantForm",
     "click button.add-review": "addReview",
     "click button.edit-review": "editReview",
-    
+
   },
 
   template: JST['restaurants/show'],
@@ -31,6 +31,7 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
 
     return this;
   },
+  
 
 
   reviewsList: function() {

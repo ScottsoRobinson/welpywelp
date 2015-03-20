@@ -438,3 +438,19 @@ textarea{
   min-height: 150px;
   text-size: 16px;
 }
+
+footer{
+  width: 900px;
+  margin: 0 auto;
+  background: white;
+  font-size: 14px;
+  color: #aaa;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+}
+.foot-link{
+  display: block;
+  padding: 10px;
+}
