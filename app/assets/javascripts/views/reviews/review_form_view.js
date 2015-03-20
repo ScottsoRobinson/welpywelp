@@ -20,7 +20,7 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    
+
     var content = this.template({
       review: this.model
     });
@@ -43,7 +43,6 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
       success: function () {
         var rest = WelpyWelp.restaurants.getOrFetch(this.restaurant_id);
         rest.set({user_owned_review: this.model.id});
-
         this.collection.add(this.model, {merge: true});
       }.bind(this),
       error: function (model, data) {

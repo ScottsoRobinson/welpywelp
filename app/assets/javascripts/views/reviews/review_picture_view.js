@@ -4,6 +4,10 @@ WelpyWelp.Views.ReviewPicture = Backbone.CompositeView.extend({
 
   template: JST['reviews/picture'],
 
+  events: {
+    "click img": "showImage"
+  },
+
   render: function () {
     console.log("in review picture render")
     var content = this.template({
@@ -14,6 +18,17 @@ WelpyWelp.Views.ReviewPicture = Backbone.CompositeView.extend({
 
     return this;
 
+  },
+
+  showImage: function () {
+
+    $('.modal-pic').toggleClass("hidden")
+    var pic = new WelpyWelp.Views.PictureShow({
+      model: this.model
+    })
+    this.addSubview('.modal-picture', pic);
+
+    return this;
   }
 
 });

@@ -6,7 +6,7 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync change:user_owned_review", this.render);
-    this.listenTo(this.model.reviews(), "sync", this.render);
+    this.listenTo(this.model.reviews(), "add sync", this.render);
 
   },
 
@@ -14,7 +14,7 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
     "click button.edit-restaurant": "editRestaurantForm",
     "click button.add-review": "addReview",
     "click button.edit-review": "editReview",
-
+    
   },
 
   template: JST['restaurants/show'],
@@ -57,9 +57,9 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
       collection: this.model.reviews(),
       from: "restaurants/" + this.model.id
     });
-    this.addSubview('section.review-form-section', reviewForm);
     $('.modal').toggleClass("hidden")
-    $('.modal-form').html(addRev.render().$el)
+
+    this.addSubview('.modal-form', reviewForm);
     return this;
   },
 
@@ -76,7 +76,7 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
       from: "restaurants/" + this.model.id
     });
     $('.modal').toggleClass("hidden")
-    
+
     this.addSubview('.modal-form', reviewForm);
 
     return this;
@@ -89,7 +89,9 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
       model: this.model,
       collection: this.collection,
     });
-    this.addSubview('section.form-section', editView);
+    $('.modal').toggleClass("hidden")
+
+    this.addSubview('.modal-form', editView);
     return this;
   }
 
