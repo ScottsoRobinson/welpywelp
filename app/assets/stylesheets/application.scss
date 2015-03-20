@@ -80,8 +80,8 @@ span.sign-up{
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300px;
-  height: 150px;
+  width: 350px;
+  height: 260px;
   transform: translateX(-50%) translateY(-50%);
   background: #fff;
   border-radius: 15px;
@@ -93,8 +93,8 @@ span.sign-in{
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300px;
-  height: 110px;
+  width: 350px;
+  height: 190px;
   transform: translateX(-50%) translateY(-50%);
   background: #fff;
   border-radius: 15px;
@@ -423,7 +423,9 @@ $yellowglow: #F2F2A2;
 }
 
 /* FORM */
-
+img:hover{
+  cursor:pointer;
+}
 input{
   padding: 5px;
   width: 300px;
