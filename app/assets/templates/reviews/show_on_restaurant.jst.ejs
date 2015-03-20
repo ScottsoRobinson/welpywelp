@@ -1,9 +1,12 @@
 <br>
-<%= review.escape("body") %><br>
-<%= review.escape("title") %>
+<div class="review-body">
+  <%= review.escape("body") %><br>
+
+</div>
+
 Rating is <%= review.escape("rating") %><br>
 <ul class="picture-show">
 
 </ul>
 <br>
-<a href="#/users/<%= review.escape("author_id") %>"><%= review.escape("author_name") %></a>
+<a class="username-on-review" href="#/users/<%= review.escape("author_id") %>"><%= review.escape("author_name") %></a>

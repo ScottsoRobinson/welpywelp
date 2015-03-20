@@ -1,24 +1,28 @@
 
 
-	<input type="text" class="query" value="">
-	<button class="query-button">Find some food</button>
-<nav>
-	<% if (results.pageNum > 1) { %>
-		<a class="prev-page" href="javascript:void(0)">Previous Page</a>
-	<% } %>
-	<% if (results.pageNum < results.total_pages) { %>
-		<a class="next-page" href="javascript:void(0)">Next Page</a>
-	<% } %>
-
-
-
-
-</nav>
-
 <section class="map">
 
 </section>
 
-<ul class="restaurants-search-list">
+<section class="search-not-map">
 
-</ul>
+
+	<input type="text" class="query" value="">
+	<button class="query-button">Find some food</button>
+	<nav class="navigation">
+		<% if (results.pageNum > 1) { %>
+			<a class="prev-page" href="javascript:void(0)">Previous Page</a>
+		<% } %>
+		<% if (results.pageNum < results.total_pages) { %>
+			<a class="next-page" href="javascript:void(0)">Next Page</a>
+		<% } %>
+
+
+
+
+	</nav>
+
+	<ul class="restaurants-search-list group">
+
+	</ul>
+</section>

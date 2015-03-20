@@ -20,7 +20,7 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
   },
 
   render: function () {
-
+    
     var content = this.template({
       review: this.model
     });

@@ -1,7 +1,12 @@
-name is <a href="#/restaurants/<%= restaurant.get("id") %>"><%=restaurant.escape("name")%></a><br>
-<img src="<%= restaurant.escape("picture") %>" alt="" />
-cuisine is <%=restaurant.escape("cuisine")%> <br>
-<%= restaurant.escape("address") %> <br>
+
+<img class="index-item-picture" src="<%= restaurant.escape("picture") %>" alt="" />
+<a class="restaurant-name" href="#/restaurants/<%= restaurant.get("id") %>"><%= restaurant.escape("name") %></a>
+<br>
+<div class="cuisine">
+  <%= restaurant.escape("restaurant_cuisine")%>
+</div>
+<br><br>
+<%= restaurant.escape("address") %> <br><br>
 <% if (restaurant.get("average_rating") === null) { %>
   rating is undetermined<br><br>
 <% } else { %>

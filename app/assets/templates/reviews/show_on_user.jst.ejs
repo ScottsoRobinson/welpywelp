@@ -1,9 +1,14 @@
-<a href="#/restaurants/<%= review.get("restaurant_id") %>"><%= review.escape("restaurant_name") %></a>
+<a class="restaurant-name" href="#/restaurants/<%= review.get("restaurant_id") %>"><%= review.escape("restaurant_name") %></a>
 <br>
-<%= review.escape("restaurant_cuisine")%>
+<div class="cuisine">
+  <%= review.escape("restaurant_cuisine")%>
+</div>
 <br>
-<%= review.escape("body") %><br>
-<%= review.escape("title") %>
+<div class="review-body">
+  <%= review.escape("body") %><br>
+
+</div>
+
 Rating is <%= review.escape("rating") %><br>
 <ul class="picture-show">
 

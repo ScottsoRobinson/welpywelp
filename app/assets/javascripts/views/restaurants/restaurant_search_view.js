@@ -1,5 +1,9 @@
 WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
 
+  tagName: "section",
+
+  className: "search group",
+
   initialize: function () {
     this.searchResults = new WelpyWelp.Collections.RestaurantSearchResults();
     this.searchResults.pageNum = 1;

@@ -6,7 +6,7 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync change:user_owned_review", this.render);
-    this.listenTo(this.model.reviews(), "add sync", this.render);
+    this.listenTo(this.model.reviews(), "sync", this.render);
 
   },
 
@@ -58,6 +58,8 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
       from: "restaurants/" + this.model.id
     });
     this.addSubview('section.review-form-section', reviewForm);
+    $('.modal').toggleClass("hidden")
+    $('.modal-form').html(addRev.render().$el)
     return this;
   },
 
@@ -73,8 +75,10 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
       collection: this.model.reviews(),
       from: "restaurants/" + this.model.id
     });
+    $('.modal').toggleClass("hidden")
+    
+    this.addSubview('.modal-form', reviewForm);
 
-    this.addSubview('section.review-form-section', reviewForm);
     return this;
   },
 

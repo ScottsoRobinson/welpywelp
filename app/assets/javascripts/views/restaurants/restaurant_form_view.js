@@ -12,6 +12,7 @@ WelpyWelp.Views.RestaurantForm = Backbone.CompositeView.extend({
   template: JST['restaurants/form'],
 
   render: function () {
+    console.log("in form render");
     var content = this.template({
       restaurant: this.model
     });
@@ -29,6 +30,7 @@ WelpyWelp.Views.RestaurantForm = Backbone.CompositeView.extend({
       success: function () {
         console.log("success");
         this.collection.add(this.model, {merge: true});
+        $('.modal').addClass("hidden");
         Backbone.history.navigate("restaurants/" + this.model.get("id"), {trigger: true});
       }.bind(this)
     });

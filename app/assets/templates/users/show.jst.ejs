@@ -8,8 +8,13 @@
   <% if (user.get("is_current_user")){%>
     <button class="edit-user">Edit User Details</button>
     <section class="user-form-section"></section>
+    <div class="modal hidden">
+      <section class="modal-screen"></section>
+      <section class="modal-form group"></section>
+    </div>
     <section class="review-form-section"></section>
   <% } %>
 </section>
 
-<ul class="reviews-list"></ul>
+<ul class="reviews-list">
+</ul>

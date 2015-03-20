@@ -2,6 +2,8 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
 
   template: JST['restaurants/top_level_show'],
 
+  className: "top-level-show group",
+
   render: function () {
     var content = this.template();
     this.$el.html(content);
@@ -11,7 +13,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
         this.renderMap();
       }.bind(this)
     });
-  
+
     return this;
   },
 
@@ -27,7 +29,7 @@ WelpyWelp.Views.RestaurantShow = Backbone.CompositeView.extend({
 
   renderMap: function () {
     var mapOptions = {
-      center: new google.maps.LatLng(40.725040, -73.996833),
+      center: new google.maps.LatLng(this.model.get("latitude"), this.model.get("longitude")),
       zoom: 13,
       mapyTypeId: google.maps.MapTypeId.ROADMAP
     };
