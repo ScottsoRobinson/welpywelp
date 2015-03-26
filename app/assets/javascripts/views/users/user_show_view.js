@@ -44,9 +44,10 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model,
       collection: this.collection
     });
-    $('.modal').toggleClass("hidden")
+    WelpyWelp.modalEl.toggleClass("hidden")
+    var el = WelpyWelp.modalEl.find(".modal-form");
+    el.html(userForm.render().$el);
 
-    this.addSubview('.modal-form', userForm);
     return this;
 
   },
@@ -63,9 +64,11 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
       restaurant_id: review.get("restaurant_id"),
       from: "users/" + this.model.id
     });
-    $('.modal').toggleClass("hidden")
 
-    this.addSubview('.modal-form', reviewForm);
+    WelpyWelp.modalEl.toggleClass("hidden")
+    var el = WelpyWelp.modalEl.find(".modal-form");
+    el.html(reviewForm.render().$el);
+
     return this;
   }
 

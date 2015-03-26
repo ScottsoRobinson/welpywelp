@@ -20,7 +20,7 @@ WelpyWelp.Views.PictureShow = Backbone.CompositeView.extend({
 
   removePic: function () {
     this.remove();
-    $('.modal').toggleClass('hidden')
+    WelpyWelp.modalEl.toggleClass('hidden')
   }
 
 })
