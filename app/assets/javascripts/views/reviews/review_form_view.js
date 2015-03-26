@@ -9,7 +9,8 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
   events:{
     "click button.submit-review": "submit",
     // "click button.save-pictures": "changePicture"
-    "change #input-picture-files": "changePicture"
+    "change #input-picture-files": "changePicture",
+    "click button.cancel-form": "cancelForm"
   },
 
   initialize: function (options) {
@@ -44,6 +45,8 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
         var rest = WelpyWelp.restaurants.getOrFetch(this.restaurant_id);
         rest.set({user_owned_review: this.model.id});
         this.collection.add(this.model, {merge: true});
+        this.remove();
+        WelpyWelp.modalEl.toggleClass("hidden");
       }.bind(this),
       error: function (model, data) {
         console.log(data.responseText);
@@ -88,6 +91,12 @@ WelpyWelp.Views.ReviewForm = Backbone.CompositeView.extend({
   previewPic: function (src) {
     console.log('in preview pic');
     this.$("#picture-preview").append("<li class='preview-picture'><img src='" + src + "'></li>");
+  },
+
+  cancelForm: function (event) {
+    event.preventDefault();
+    this.remove();
+    WelpyWelp.modalEl.toggleClass("hidden")
   }
 
 

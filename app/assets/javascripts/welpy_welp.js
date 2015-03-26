@@ -8,6 +8,7 @@ window.WelpyWelp = {
     WelpyWelp.restaurants = new WelpyWelp.Collections.Restaurants();
     WelpyWelp.restaurants.fetch();
     WelpyWelp.users = new WelpyWelp.Collections.Users();
+    WelpyWelp.modalEl = $("div.modal");
     
     new WelpyWelp.Routers.Router({
       $rootEl: $('main.main'),

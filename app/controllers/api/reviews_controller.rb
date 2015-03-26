@@ -17,7 +17,7 @@ module Api
 
     def update
       @review = Review.find(params[:id])
-
+      @review.review_pictures = params[:review][:review_pictures]
       if @review.update(reviews_params)
         render :show
       else

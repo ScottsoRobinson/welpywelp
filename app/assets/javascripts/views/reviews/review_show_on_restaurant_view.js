@@ -9,9 +9,7 @@ WelpyWelp.Views.ReviewShowOnRestaurant = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
   },
-  events: {
-    "click img": "showImage"
-  },
+
 
 
   render: function () {

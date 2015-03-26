@@ -14,7 +14,9 @@ WelpyWelp.Routers.Router = Backbone.Router.extend({
   },
 
   search: function () {
-    var view = new WelpyWelp.Views.RestaurantSearch();
+    var view = new WelpyWelp.Views.RestaurantSearch({
+      collection: this.collection
+    });
 
     this._swapView(view);
   },

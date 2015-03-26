@@ -15,7 +15,8 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
     "change .query": "search",
     "click .query-button": "search",
     "click .next-page": "nextPage",
-		"click .prev-page": "prevPage"
+		"click .prev-page": "prevPage",
+    "click button.add-restaurant-form-button": "addRestaurant"
   },
 
   template: JST['restaurants/search'],
@@ -125,6 +126,18 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
       }.bind(this)
 
     });
+  },
+
+  addRestaurant: function(event){
+    event.preventDefault();
+    var restaurant = new WelpyWelp.Models.Restaurant();
+    var formView = new WelpyWelp.Views.RestaurantForm({
+      model: restaurant,
+      collection: this.collection
+    });
+    WelpyWelp.modalEl.toggleClass("hidden")
+    var el = WelpyWelp.modalEl.find(".modal-form");
+    el.html(formView.render().$el);
   }
 
 })

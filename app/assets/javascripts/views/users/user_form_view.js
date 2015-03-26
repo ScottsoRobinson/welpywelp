@@ -8,7 +8,8 @@ WelpyWelp.Views.UserForm = Backbone.CompositeView.extend({
 
   events:{
     "click button.user-form-submit": "submit",
-    "change #input-picture-file": "changePicture"
+    "change #input-picture-file": "changePicture",
+    "click button.cancel-form": "cancelForm"
   },
 
   render: function () {
@@ -32,6 +33,8 @@ WelpyWelp.Views.UserForm = Backbone.CompositeView.extend({
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, {merge: true});
+        this.remove();
+        WelpyWelp.modalEl.toggleClass("hidden");
       }.bind(this),
       wait: true
     });
@@ -53,5 +56,11 @@ WelpyWelp.Views.UserForm = Backbone.CompositeView.extend({
 
   previewPic: function (src) {
     this.$("#picture-preview").attr("src", src);
+  },
+
+  cancelForm: function (event) {
+    event.preventDefault();
+    this.remove();
+    WelpyWelp.modalEl.toggleClass("hidden");
   }
 });
