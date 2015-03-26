@@ -14,7 +14,7 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
     "click button.edit-restaurant": "editRestaurantForm",
     "click button.add-review": "addReview",
     "click button.edit-review": "editReview",
-
+    "click img.restaurant-image": "showPic"
 
   },
 
@@ -97,6 +97,20 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
     var el = WelpyWelp.modalEl.find(".modal-form");
     el.html(editView.render().$el);
     // this.addSubview(el, reviewForm);
+    return this;
+  },
+
+  showPic: function (event) {
+    event.preventDefault();
+    console.log("in show rest pic");
+    var pic = new WelpyWelp.Views.RestaurantPictureShow({
+      model: this.model
+    })
+    WelpyWelp.modalEl.toggleClass("hidden")
+    var el = WelpyWelp.modalEl.find(".modal-form");
+    el.html(pic.render().$el);
+    //this.addSubview('.modal-picture', pic);
+
     return this;
   }
 
