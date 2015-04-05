@@ -13,7 +13,8 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
 
   events: {
     "click button.edit-user": "editUserInfo",
-    "click button.edit-review": "editReview"
+    "click button.edit-review": "editReview",
+    "click img.profile-pic": "showPic"
   },
 
   render: function () {
@@ -70,6 +71,20 @@ WelpyWelp.Views.UserShow = Backbone.CompositeView.extend({
     el.html(reviewForm.render().$el);
 
     return this;
+  },
+
+  showPic: function (event) {
+    event.preventDefault();
+
+    var pic = new WelpyWelp.Views.UserPictureShow({
+      model: this.model
+    })
+    WelpyWelp.modalEl.toggleClass("hidden")
+    var el = WelpyWelp.modalEl.find(".modal-form");
+    el.html(pic.render().$el);
+
+    return this;
+
   }
 
 

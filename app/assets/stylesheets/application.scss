@@ -219,11 +219,12 @@ main.main {
 
 a:hover{
   cursor: pointer;
-  text-weight: bold;
+  font-weight: bold;
 }
 
 button:hover{
   cursor: pointer;
+  font-weight: bold;
 }
 
 /* USER PAGE */
@@ -425,11 +426,24 @@ $yellowglow: #F2F2A2;
 /* FORM */
 img:hover{
   cursor:pointer;
+  border: 1px solid #000;
+}
+
+label{
+  padding: 5px;
 }
 input{
   padding: 5px;
   width: 300px;
   text-size: 16px;
+}
+
+form button:hover {
+  color: #000;
+}
+
+input.picture-file:hover{
+  cursor: pointer;
 }
 
 textarea{

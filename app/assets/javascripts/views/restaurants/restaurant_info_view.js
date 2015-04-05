@@ -102,7 +102,6 @@ WelpyWelp.Views.RestaurantInfo = Backbone.CompositeView.extend({
 
   showPic: function (event) {
     event.preventDefault();
-    console.log("in show rest pic");
     var pic = new WelpyWelp.Views.RestaurantPictureShow({
       model: this.model
     })
