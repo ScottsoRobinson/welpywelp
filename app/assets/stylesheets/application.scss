@@ -81,7 +81,7 @@ span.sign-up{
   top: 50%;
   left: 50%;
   width: 350px;
-  height: 260px;
+  height: 300px;
   transform: translateX(-50%) translateY(-50%);
   background: #fff;
   border-radius: 15px;
@@ -122,7 +122,6 @@ button.sign{
   color: green;
 
 }
-
 
 
 a.sign {
@@ -219,12 +218,12 @@ main.main {
 
 a:hover{
   cursor: pointer;
-  font-weight: bold;
+  text-decoration: underline;
 }
 
 button:hover{
   cursor: pointer;
-  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* USER PAGE */
@@ -280,7 +279,7 @@ li .restaurant-name{
   font-size: 20px;
 }
 li .restaurant-name:hover{
-  font-weight: bold;
+
   color: #b4373a;
 }
 li .review-body{
@@ -426,7 +425,7 @@ $yellowglow: #F2F2A2;
 /* FORM */
 img:hover{
   cursor:pointer;
-  border: 1px solid #000;
+  background: #000;
 }
 
 label{
@@ -437,13 +436,15 @@ input{
   width: 300px;
   text-size: 16px;
 }
-
-form button:hover {
+form > button {
+  padding: 5px;
+}
+form > button:hover {
   color: #000;
 }
 
-input.picture-file:hover{
-  cursor: pointer;
+button.sign-out:hover{
+  color: #fff;
 }
 
 textarea{
@@ -452,6 +453,8 @@ textarea{
   min-height: 150px;
   text-size: 16px;
 }
+
+// footer //
 
 footer{
   width: 900px;
