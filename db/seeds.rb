@@ -45,6 +45,7 @@ streets = (2..130).to_a
 numbers = (5..300).to_a
 east_west = 0
 restaurant_setup.each do |setup|
+  sleep(10)
   first_names.each do |name|
     e_w = east_west % 2 == 0 ? "E" : "W"
     east_west += 1
