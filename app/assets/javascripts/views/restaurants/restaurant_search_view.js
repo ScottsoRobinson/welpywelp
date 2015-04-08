@@ -9,6 +9,7 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
     this.searchResults.pageNum = 1;
 
     this.listenTo(this.searchResults, "sync", this.render);
+    this.listenTo(this.searchResults, "sync", this.emptySearch)
   },
 
   events: {
@@ -61,16 +62,26 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
 
   },
 
+  emptySearch: function () {
+    if (this.searchResults.models.length === 0) {
+      console.log("in 0 length");
+      var view = new WelpyWelp.Views.EmptySearchView();
+      this.addSubview('ul.restaurants-search-list', view);
+    }
+  },
+
   searchResultsList: function () {
     console.log("in search results");
-    this.searchResults.each(function (item) {
-      var searchView = new WelpyWelp.Views.RestaurantSearchItem({
-        model: item
-      });
+
+      this.searchResults.each(function (item) {
+        var searchView = new WelpyWelp.Views.RestaurantSearchItem({
+          model: item
+        });
 
       this.addSubview('ul.restaurants-search-list', searchView);
 
-    }.bind(this));
+      }.bind(this));
+
     return this;
 
   },
