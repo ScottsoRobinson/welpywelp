@@ -9,4 +9,5 @@ if !@restaurant.review_pictures.empty?
   json.picture_huge @restaurant.review_pictures.first.picture.url(:huge)
 else
   json.picture User.new.picture.url
+  json.picture_huge User.new.picture.url
 end
