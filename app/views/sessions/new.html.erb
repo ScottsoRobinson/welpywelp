@@ -19,6 +19,9 @@
       <a class="sign" href="<%= new_user_url %>">Or Sign Up</a>
     </div>
   </form>
-  <button class="demo-user">Demo User</button>
+  <form class="" action="<%= session_demo_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button class="sign">Demo User</button>
+  </form>
   </span>
 </div>

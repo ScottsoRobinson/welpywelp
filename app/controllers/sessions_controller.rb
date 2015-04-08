@@ -18,6 +18,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def demo
+    @user = User.find_by_credentials("DemoUser", "password")
+    login(@user)
+    redirect_to root_url
+  end
+
   def destroy
     logout
     redirect_to new_session_url
