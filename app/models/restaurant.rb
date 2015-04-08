@@ -42,6 +42,7 @@ class Restaurant < ActiveRecord::Base
       end
 
       average_rating = sum.to_f / restaurant_reviews.length
+      average_rating = (average_rating*10).round/10.0
     end
     average_rating
   end
