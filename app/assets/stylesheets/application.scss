@@ -116,22 +116,26 @@ h2.sign{
 
 }
 
-button.sign{
+a.sign{
   display: block;
   padding: 5px;
   color: green;
-
+  font-size: 12px;
 }
 
 
-a.sign {
+button.sign {
   display: block;
   padding: 10px 5px;
   background: green;
   color: white;
   float: right;
-  font-size: 12px;
+  font-size: 15px;
   border-radius: 12px;
+}
+
+button.sign:hover{
+  color: white;
 }
 
 /*.sign .input{
