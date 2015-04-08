@@ -25,7 +25,8 @@ WelpyWelp.Views.RestaurantSearch = Backbone.CompositeView.extend({
   render: function () {
     console.log("in search render");
     var content = this.template({
-      results: this.searchResults
+      results: this.searchResults,
+      query: this.searchResults.query
     });
     this.$el.html(content);
     this.renderMap();
