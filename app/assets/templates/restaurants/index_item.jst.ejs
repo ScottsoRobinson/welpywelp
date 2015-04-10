@@ -6,7 +6,9 @@
   <%= restaurant.escape("cuisine")%>
 </div>
 <br><br>
-<%= restaurant.escape("address") %> <br><br>
+<a href="http://maps.google.com/?q=<%= restaurant.escape("address") %>" 
+  target="_blank"><%= restaurant.escape("address") %></a>
+  <br><br>
 <% if (restaurant.get("average_rating") === null) { %>
   rating is undetermined<br><br>
 <% } else { %>
