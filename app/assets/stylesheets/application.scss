@@ -137,6 +137,7 @@ button.sign {
 
 button.sign:hover{
   color: white;
+
 }
 
 /*.sign .input{
@@ -199,6 +200,8 @@ button.sign-out{
   color: #fff;
   padding: 26px 10px;
   background: #b4373a;
+  border: 0;
+  border-radius: 0;
 }
 
 button.sign-out:hover {
@@ -228,7 +231,7 @@ a:hover{
 
 button:hover{
   cursor: pointer;
-  text-decoration: underline;
+  // text-decoration: underline;
 }
 
 /* USER PAGE */
@@ -416,6 +419,16 @@ $yellowglow: #F2F2A2;
 
 }
 
+ul#picture-preview{
+  max-height: 300px;
+  overflow: scroll;
+}
+
+li.preview-picture img{
+  max-width: 200px;
+  max-height: 200px;
+}
+
 .modal-picture {
   max-width: 600px;
   min-height: 200px;
@@ -440,6 +453,10 @@ img:hover{
   background: #000;
 }
 
+.restaurant-form button, .review-form button{
+
+}
+
 label{
   padding: 5px;
 }
@@ -448,11 +465,24 @@ input{
   width: 300px;
   text-size: 16px;
 }
-form > button {
-  padding: 5px;
+
+button.add-restaurant-form-button, button.query-button,
+button.edit-review, button.add-review, button.edit-restaurant, button.edit-user{
+  background: #b4373a;
+  color: #fff;
 }
-form > button:hover {
+
+form > button, button.query-button, button.add-restaurant-form-button,
+button.edit-review, button.add-review, button.edit-restaurant, button.edit-user {
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+form > button:hover, button.query-button:hover, button.add-restaurant-form-button:hover,
+button.edit-review:hover, button.add-review:hover, button.edit-restaurant:hover,
+button.edit-user:hover{
   color: #000;
+  background: #fff;
 }
 
 button.sign-out:hover{
