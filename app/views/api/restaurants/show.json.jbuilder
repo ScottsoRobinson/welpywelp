@@ -5,7 +5,7 @@ json.user_owned_review @restaurant.reviews.find_by(author_id: current_user.id).t
 json.reviews @restaurant.reviews, partial: "api/reviews/review", as: :review
 
 if !@restaurant.review_pictures.empty?
-  json.picture @restaurant.review_pictures.first.picture.url(:thumbnail)
+  json.picture @restaurant.review_pictures.first.picture.url(:medium)
   json.picture_huge @restaurant.review_pictures.first.picture.url(:huge)
 else
   json.picture User.new.picture.url
