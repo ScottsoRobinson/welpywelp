@@ -94,7 +94,7 @@ span.sign-in{
   top: 50%;
   left: 50%;
   width: 350px;
-  height: 190px;
+  height: 210px;
   transform: translateX(-50%) translateY(-50%);
   background: #fff;
   border-radius: 15px;
@@ -133,12 +133,13 @@ button.sign {
   float: right;
   font-size: 15px;
   border-radius: 12px;
+  border: 1px solid #000;
 }
 
-button.sign:hover{
-  color: white;
-
-}
+// button.sign:hover{
+//   color: white;
+//
+// }
 
 /*.sign .input{
   text-align: center;
@@ -170,9 +171,10 @@ nav.header {
   font-weight: bold;
 
 }
-.header-logo a:hover {
+.header a:hover {
   color: #b4373a;
   background: #000;
+  text-decoration: none;
 }
 
 .header-links {
@@ -424,6 +426,11 @@ ul#picture-preview{
   overflow: scroll;
 }
 
+img#picture-preview{
+  max-height: 200px;
+  max-width: 200px;
+}
+
 li.preview-picture img{
   max-width: 200px;
   max-height: 200px;
@@ -453,12 +460,11 @@ img:hover{
   background: #000;
 }
 
-.restaurant-form button, .review-form button{
 
-}
 
 label{
   padding: 5px;
+  display: block;
 }
 input{
   padding: 5px;
@@ -466,27 +472,39 @@ input{
   text-size: 16px;
 }
 
-button.add-restaurant-form-button, button.query-button,
+a.next-page, a.prev-page{
+  display: block;
+  float: left;
+  width: 85px;
+}
+
+a.prev-page{
+  width: 110px;
+}
+
+button.add-restaurant-form-button, button.query-button, a.next-page, a.prev-page,
 button.edit-review, button.add-review, button.edit-restaurant, button.edit-user{
   background: #b4373a;
   color: #fff;
 }
 
 form > button, button.query-button, button.add-restaurant-form-button,
-button.edit-review, button.add-review, button.edit-restaurant, button.edit-user {
+button.edit-review, button.add-review, button.edit-restaurant, button.edit-user,
+a.next-page, a.prev-page {
   padding: 5px;
   border: 1px solid #000;
   border-radius: 10px;
 }
-form > button:hover, button.query-button:hover, button.add-restaurant-form-button:hover,
+form button:hover, button.query-button:hover, button.add-restaurant-form-button:hover,
 button.edit-review:hover, button.add-review:hover, button.edit-restaurant:hover,
-button.edit-user:hover{
+button.edit-user:hover, a.next-page:hover, a.prev-page:hover{
   color: #000;
   background: #fff;
+  text-decoration: none;
 }
 
 button.sign-out:hover{
-  color: #fff;
+  color: #b4373a;
 }
 
 textarea{
